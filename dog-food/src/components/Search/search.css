@@ -1,0 +1,42 @@
+.searchS {
+min-width: 300px;
+width: max-content;
+display: flex;
+align-items: center;
+position: relative;
+}
+
+.searchS>input {
+    flex: 1;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    border-radius:10px;
+    border: 1px solid silver;
+    font-size: 16px;
+    outline: none;
+
+}
+
+.searchS>input:focus {
+    border-color: rgb(255, 225, 0);
+}
+
+.searchS>button {
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    /* width: 24px; */
+    height: 24px;
+}
+
+.searchS>button>svg {
+    height: 100%;
+    fill: silver;
+    cursor: pointer;
+}
+
+.searchS svg:hover {
+    fill: rgb(132, 132, 17);
+}
