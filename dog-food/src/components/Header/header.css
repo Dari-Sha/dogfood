@@ -24,6 +24,8 @@ header {
 .menu {
     display: flex;
     gap: 1em;
+    font-size: 1.1em;
+    font-weight: 200;
 }
 
 a {
