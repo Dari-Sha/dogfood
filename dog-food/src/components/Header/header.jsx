@@ -1,19 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import "./header.css";
 
-export default () => {
-   let user = localStorage.getItem("user8");
+export default ({user, setUser}) => {
+   // хук состояния - свойство, функция, в качестве аргумента которой передается новое значение нашего свойства = useState(аргумент-изначальное значение свойства)
+   // const [user, setUser] = useState(localStorage.getItem("user8"));
+
+   // let user = localStorage.getItem("user8");
    const logIn = (e) => {
       e.preventDefault();
       let name = prompt("Как Вас зовут?");
       if (name) {
          localStorage.setItem("user8", name);
-         user = name;
+         setUser(name);
       }
    }
    const logOut = (e) => {
       e.preventDefault();
       localStorage.removeItem("user8");
+      setUser("");
    }
    
    return <header>
@@ -22,7 +26,7 @@ export default () => {
       <nav className="menu">
          {user && <a href="">{user}</a>}
          {!user && <a href="" onClick={logIn}>Войти</a>}
-         {<a href="" onClick={logOut}>Выйти</a>}
+         {user && <a href="" onClick={logOut}>Выйти</a>}
       </nav>
    </header> 
 }
