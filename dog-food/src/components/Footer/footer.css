@@ -1,15 +1,31 @@
 footer {
-    background-color: #222;
-    color: #fff;
+    background-color: rgba(255, 255, 0, 0.773);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .footer__copy {
-    font-size: 1.5cm;
+    font-size: 10px;
+    text-align: center;
 }
 
 .footer__text {
-    text-align: right;
+    text-align: center;
 }
+
+
+.icons>svg {
+height: 24px;
+display: block;
+}
+
+.contacts {
+    display: flex;
+   flex-direction: row;
+   gap: 20px;
+   align-items: center;
+   font-size: 20px;
+}
+
+

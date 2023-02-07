@@ -1,5 +1,9 @@
 import React, {useState} from "react";
 import Search from "../Search/search";
+import {ReactComponent as LogoImg} from "./img/logo.svg";
+import {ReactComponent as LogoMinImg} from "./img/logo_min.svg";
+import {ReactComponent as FavImg} from "./img/ic-favorites.svg";
+import {ReactComponent as CartImg} from "./img/ic-cart.svg";
 import "./header.css";
 
 export default ({user, setUser, products, setModalActive}) => {
@@ -26,14 +30,24 @@ export default ({user, setUser, products, setModalActive}) => {
       setUser("");
    }
    
-   return <header>
-      <a className="logo" href="">DogFood</a>
+   return <>
+   <header>
+      <a className="logo" href="">
+      <LogoImg/>
+         </a>
       <Search data={products}/>
       {/* <input type="search" placeholder="Поиск..." className="search"/> */}
       <nav className="menu">
+         <FavImg/>
+         <CartImg/>
          {user && <a href="">{user}</a>}
-         {!user && <a href="" onClick={logIn}>Войти</a>}
+         {!user && <a href="" onClick={logIn}><LogoMinImg/><br/>Войти</a>}
          {user && <a href="" onClick={logOut}>Выйти</a>}
       </nav>
    </header> 
+   <main>
+      <h1>Крафтовые лакомства для собак</h1>
+      <div className="description">Всегда свежие лакомства ручной работы с доставкой по России и миру</div>
+   </main>
+   </>
 }
