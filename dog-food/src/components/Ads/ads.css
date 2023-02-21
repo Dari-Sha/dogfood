@@ -16,6 +16,7 @@
     font-size: 40px;
     font-weight: bold;
     color: #f3f2f6;
+    max-height: 160px;
 }
 
 .promo:before {

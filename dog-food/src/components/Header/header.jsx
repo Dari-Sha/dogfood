@@ -42,7 +42,7 @@ export default ({user, setUser, goods, searchGoods, setModalActive}) => {
          {/* <input type="search" placeholder="Поиск..." className="search"/> */}
          <nav className="menu">
             <FavImg/>
-            <CartImg/>
+            <Link to="/cart"><CartImg/></Link>
             {user && <Link to="/profile">{user}</Link>}
             {!user && <a href="" onClick={logIn}><LogoMinImg/><br/>Войти</a>}
             {user && <a href="" onClick={logOut}>Выйти</a>}

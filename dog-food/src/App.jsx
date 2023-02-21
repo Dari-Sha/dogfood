@@ -14,6 +14,7 @@ import Catalog from "./pages/Catalog.jsx";
 import Home from "./pages/Home.jsx";
 import Profile from "./pages/Profile.jsx";
 import Product from "./pages/Product.jsx";
+import Cart from "./pages/Cart.jsx"
 
 import {Api} from "./Api";
 import { unstable_renderSubtreeIntoContainer } from "react-dom";
@@ -75,7 +76,7 @@ useEffect(() => {
 
     return (
         <>
-        <div className="container">
+        <div className="contant">
         <Header 
             user={user} 
             setUser={setUser} 
@@ -91,6 +92,7 @@ useEffect(() => {
                 <Route path="/profile" element={
                     <Profile setUser={setUser} user={user}/>}/>
                 <Route path="/catalog/:id" element={<Product/>}/>
+                <Route path="/cart" element={<Cart/>}/>
             </Routes>
             {/* {user ? <Catalog data={goods}/> : <Home data={smiles}/>}; */}
             {/* <Home data={smiles}/> */}
