@@ -3,7 +3,7 @@ import Cards from "../components/Cards";
 import {Link} from "react-router-dom";
 import {EmojiFrown} from "react-bootstrap-icons";
 
-export default ({data}) => {
+export default ({data, pictures}) => {
     return <>
     {data.length > 0 
     ? <>
@@ -11,7 +11,7 @@ export default ({data}) => {
         <div className="cards">
             {data.map((el, i) => 
                 <Link to={`/catalog/${el._id}`} key={el._id}>
-                    <Cards key={"card_" + i} text={el.name} like={(i + 1) % 2 === 0}/>
+                    <Cards key={"card_" + i} text={el.name} like={(i + 1) % 2 === 0} pictures={<img src={el.pictures} className="prodpic" alt="картинка будет позже" />}/>
                 </Link>)}
         </div>
         </>

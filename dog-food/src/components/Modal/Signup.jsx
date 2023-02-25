@@ -1,10 +1,12 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
+import Ctx from "../../Ctx";
 
-export default ({change, api, close, setToken}) => {
+export default ({change, close}) => {
     const [inp1, setInp1] = useState("");
     const [inp2, setInp2] = useState("");
     const [inp3, setInp3] = useState("");
     const [testPwd, setTestPwd] = useState(false);
+    const {api, setToken, setUser} = useContext(Ctx);
 
     const checkPwd = (val, type="main") => {
         type === "main" ? setInp2(val) : setInp3(val);
@@ -26,19 +28,21 @@ export default ({change, api, close, setToken}) => {
             email: inp1,
             password: inp2
         }
-        // console.log(body); убираем, чтобы не компрометировать пароль
+        console.log(body); 
+        //убираем, чтобы не компрометировать пароль
         // через фетч придумать как регистрирвоваться
         api.signUp(body)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
                 if (!data.err) {
-                    api.signin(body)
+                    api.signIn(body)
                         .then(res => res.json())
                         .then(data => {
                             localStorage.setItem("user8", data.data.name);
                             localStorage.setItem("token8", data.token);
                             setToken(data.token);
+                            setUser(data.data.name);
                         })
                     setInp1("");
                     setInp2("");

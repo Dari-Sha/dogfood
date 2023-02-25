@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import Search from "../Search/search";
 import {ReactComponent as LogoImg} from "./img/logo.svg";
 import {ReactComponent as LogoMinImg} from "./img/logo_min.svg";
@@ -6,8 +6,10 @@ import {ReactComponent as FavImg} from "./img/ic-favorites.svg";
 import {ReactComponent as CartImg} from "./img/ic-cart.svg";
 import {Link} from "react-router-dom";
 import "./header.css";
+import Ctx from "../../Ctx";
 
-export default ({user, setUser, goods, searchGoods, setModalActive}) => {
+export default ({ goods, searchGoods, setModalActive}) => {
+   const {user, setUser} = useContext(Ctx);
    // хук состояния - свойство, функция, в качестве аргумента которой передается новое значение нашего свойства = useState(аргумент-изначальное значение свойства)
    // const [user, setUser] = useState(localStorage.getItem("user8"));
 

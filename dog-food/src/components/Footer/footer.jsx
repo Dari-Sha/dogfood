@@ -15,8 +15,8 @@ export default () => {
     © {year} Интернет магазин Dogfood.ru
     </span>
     {/* <span className="footer__text"> Сайт разработан с использованием <br/>библиотеки React</span> */}
-    <a href="" className="catalog">Каталог
-    </a>
+    {/* <a href="" className="catalog">Каталог
+    </a> */}
     <span className="contacts">
         <div className="contact_info">Мы на связи<br/>
     8 (999) 00-00-00 <br/>

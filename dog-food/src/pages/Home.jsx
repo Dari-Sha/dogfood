@@ -13,9 +13,6 @@ export default ({data}) => {
             </Link>
             <div className="description">Всегда свежие лакомства ручной работы с доставкой по России и миру</div>
         </div>
-    {/* <h1>Крафтовые лакомства для собак</h1> */}
-    {/* <Link to="/catalog">Перейти в каталог</Link> */}
-    {/* <h3>Всегда свежие лакомства с доставкой по России и миру</h3> */}
     <Ads/>
     {/* <div className="cards">
             {data.map((el, i) => <Cards key={"card_" + i} text={el} like={(i + 1) % 2 === 0}/>)}

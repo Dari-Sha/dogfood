@@ -15,8 +15,9 @@ import Home from "./pages/Home.jsx";
 import Profile from "./pages/Profile.jsx";
 import Product from "./pages/Product.jsx";
 import Cart from "./pages/Cart.jsx"
-
+import Ctx from "./Ctx";
 import {Api} from "./Api";
+
 import { unstable_renderSubtreeIntoContainer } from "react-dom";
 
 
@@ -75,11 +76,19 @@ useEffect(() => {
 }, [goods])
 
     return (
-        <>
+        <Ctx.Provider value={{
+            user: user,
+            token: token,
+            api: api,
+            setUser: setUser,
+            setToken: setToken,
+            setApi: setApi,
+
+        }}>
         <div className="contant">
         <Header 
-            user={user} 
-            setUser={setUser} 
+            // user={user} удаляем из-за внесения ктх провайдера(выше). и меняем во всех компонентах ссылки на ктх провайдера
+            // setUser={setUser} 
             goods={goods}
             searchGoods={setVisibleGoods}
             setModalActive={setModalActive}
@@ -90,7 +99,7 @@ useEffect(() => {
                 <Route path="/catalog" element={
                     <Catalog data={visibleGoods}/>}/>
                 <Route path="/profile" element={
-                    <Profile setUser={setUser} user={user}/>}/>
+                    <Profile/>}/>
                 <Route path="/catalog/:id" element={<Product/>}/>
                 <Route path="/cart" element={<Cart/>}/>
             </Routes>
@@ -100,8 +109,8 @@ useEffect(() => {
         <Footer/>
     </div>
     {/* is active это пропсы, которые работают внутри компонента Модал. а модалэктив и сетмодалэктив - значения, которые сохраняются внутри параметра */}
-    <Modal isActive={modalActive} setState={setModalActive} api={api} setToken={setToken}/>
-    </>
+    <Modal isActive={modalActive} setState={setModalActive}/>
+    </Ctx.Provider>
     )
 }
 
