@@ -1,13 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.f7d2f399.css",
-    "main.js": "/static/js/main.43cfef39.js",
-    "index.html": "/index.html",
-    "main.f7d2f399.css.map": "/static/css/main.f7d2f399.css.map",
-    "main.43cfef39.js.map": "/static/js/main.43cfef39.js.map"
+    "main.css": "/dog-food/static/css/main.3266d3e7.css",
+    "main.js": "/dog-food/static/js/main.ec8c92e2.js",
+    "static/media/rog.png": "/dog-food/static/media/rog.cea11d4a9cfbcf6544bf.png",
+    "static/media/vits.png": "/dog-food/static/media/vits.a7fccb75325099c6f602.png",
+    "static/media/dog.png": "/dog-food/static/media/dog.b69137b2999aa3eb7e09.png",
+    "static/media/logo.svg": "/dog-food/static/media/logo.451d3e7a122ed0d35f9fbc7c206aeef3.svg",
+    "static/media/logo_min.svg": "/dog-food/static/media/logo_min.11e76a78dc5e393c9fa1de96b290c881.svg",
+    "static/media/viber.svg": "/dog-food/static/media/viber.53afdcb5c72721e71fa71381324a0be0.svg",
+    "static/media/ic-favorites.svg": "/dog-food/static/media/ic-favorites.5a9a0c27299e569cdb802c39cbc88f27.svg",
+    "static/media/instagram.svg": "/dog-food/static/media/instagram.c2056460bbbf6c051f72df6d7c2fa6dc.svg",
+    "static/media/whatsapp.svg": "/dog-food/static/media/whatsapp.294a9207675db77b3d9504a6175f26d4.svg",
+    "static/media/vk.svg": "/dog-food/static/media/vk.a6eb032360e8663888e9d29689c29bc4.svg",
+    "index.html": "/dog-food/index.html",
+    "static/media/telegram.svg": "/dog-food/static/media/telegram.c97dd783e978b8ffc625f28f7e7da552.svg",
+    "static/media/ic-cart.svg": "/dog-food/static/media/ic-cart.36351405bb13de945ab1f9699d66d925.svg",
+    "static/media/xmark-solid.svg": "/dog-food/static/media/xmark-solid.60cf68c83c1745a9a5a3497035f6101d.svg",
+    "static/media/magnifying-glass-solid.svg": "/dog-food/static/media/magnifying-glass-solid.06e310dbfbf3ab21da478aef6c037c14.svg",
+    "main.3266d3e7.css.map": "/dog-food/static/css/main.3266d3e7.css.map",
+    "main.ec8c92e2.js.map": "/dog-food/static/js/main.ec8c92e2.js.map"
   },
   "entrypoints": [
-    "static/css/main.f7d2f399.css",
-    "static/js/main.43cfef39.js"
+    "static/css/main.3266d3e7.css",
+    "static/js/main.ec8c92e2.js"
   ]
 }
