@@ -33,6 +33,13 @@ class Api {
             }
         })
         }
+    getProducts(id) {
+            return fetch(`${this.path}/products${id}`, {
+                headers: {
+                    "authorization": `Bearer ${this.token}`
+                }
+            })
+            }
 }
 
 export {Api}; //если мы хотим импортировать кусками - пишем что именно

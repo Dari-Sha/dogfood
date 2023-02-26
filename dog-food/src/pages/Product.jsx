@@ -1,26 +1,30 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import {useParams, Link} from "react-router-dom";
 import Review from "../components/Review/review";
+import Ctx from "../Ctx";
 
 export default ({}) => {
     const {id} = useParams();
     const [product, setProduct] = useState({});
-    const [users, setUsers] = useState([]);
+    // const [users, setUsers] = useState([]);
     // const [flag, changeFlag] = useState(!!users.lengh);
     // по id товара получаем данные для отрисовки по запросу ГЕТ
-    let token = localStorage.getItem("token8");
+    // let token = localStorage.getItem("token8");
+    const {api} = useContext(Ctx);
     useEffect(() => {
-        if (token) {
-            fetch(`https://api.react-learning.ru/products/${id}`
-            , {
-                headers: {
-                    authorization: `Bearer ${token}`
-                }
-            }).then(res => res.json()).then(data => {
+        // if (token) {
+            api.getProduct(id)
+            // fetch(`https://api.react-learning.ru/products/${id}`
+            // , {
+            //     headers: {
+            //         authorization: `Bearer ${token}`
+            //     }
+            .then(res => res.json())
+            .then(data => {
                 // console.log(data);
                 setProduct(data);
             })
-        }})
+        })
 
     // useEffect(() => {
     //         if (token && !flag) {

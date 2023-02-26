@@ -1,10 +1,9 @@
 import React from "react";
-import { TicketPerforated } from "react-bootstrap-icons";
 
 export default React.createContext({
     user: "",
     token: "",
-    api: "",
+    api: {},
     setUser: () => {},
     setToken: () => {},
     setApi: () => {}

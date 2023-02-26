@@ -18,13 +18,21 @@ import Cart from "./pages/Cart.jsx"
 import Ctx from "./Ctx";
 import {Api} from "./Api";
 
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
+const PATH = "/";
+// const PATH = "/dog-food/"; 
+//когда мы хотим работать через гитхаб. а просто слеш - если хотим работать с файла на компе.
+
+// import { unstable_renderSubtreeIntoContainer } from "react-dom";
 
 
 const smiles = ["=^_^=", "*_*", "O_o", "o_o", "o_O", "-_-"];
 
 const App = () => {
-    const [user, setUser] = useState(localStorage.getItem("user8"));
+    let usr = localStorage.getItem("user8");
+    if (usr) {
+        usr = JSON.parse(usr);
+    }
+    const [user, setUser] = useState(usr);
     const [token, setToken] = useState(localStorage.getItem("token8"));
     const [modalActive, setModalActive] = useState(false);
     const [api, setApi] = useState(new Api(token));
@@ -47,17 +55,21 @@ useEffect(() => {
 },[]) //функция отработает 1 раз при создании компонента(при монтировке)
 
 useEffect(() => {
-    console.log("change token");
+    // console.log("change token");
+    let usr = localStorage.getItem("user8");
     setApi(new Api(token));
-    setUser(localStorage.getItem("user8"));
-}, [token]);
+    if(usr) {
+        usr = JSON.parse(usr);
+    }
+    setUser(usr);
+}, [token])
 
 useEffect(() => {
     if (!user) {
         localStorage.removeItem("token8");
         setToken(null);
     }
-}, [user])
+}, [user]);
 
 useEffect(() => {
     if (token) {
@@ -95,13 +107,13 @@ useEffect(() => {
         />
         <main>
             <Routes>
-                <Route path="/" element={<Home data={smiles}/>}/>
-                <Route path="/catalog" element={
+                <Route path={PATH} element={<Home data={smiles}/>}/>
+                <Route path={PATH + "catalog"} element={
                     <Catalog data={visibleGoods}/>}/>
-                <Route path="/profile" element={
+                <Route path={PATH + "/profile"} element={
                     <Profile/>}/>
-                <Route path="/catalog/:id" element={<Product/>}/>
-                <Route path="/cart" element={<Cart/>}/>
+                <Route path={PATH + "/catalog/:id"} element={<Product/>}/>
+                <Route path={PATH + "/cart"} element={<Cart/>}/>
             </Routes>
             {/* {user ? <Catalog data={goods}/> : <Home data={smiles}/>}; */}
             {/* <Home data={smiles}/> */}
