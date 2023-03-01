@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Routes, Route} from "react-router-dom";
 import "./style.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 // import products from "./assets/data.json";
 
 
@@ -15,6 +16,8 @@ import Home from "./pages/Home.jsx";
 import Profile from "./pages/Profile.jsx";
 import Product from "./pages/Product.jsx";
 import Cart from "./pages/Cart.jsx"
+import AddForm from "./pages/AddForm";
+
 import Ctx from "./Ctx";
 import {Api} from "./Api";
 
@@ -77,6 +80,7 @@ useEffect(() => {
         api.getProducts()
             .then(res => res.json())
             .then(data => {
+                // setVisibleGoods(data.products); возможно добавить
                 // console.log(data);
                 setGoods(data.products);
     })
@@ -92,28 +96,35 @@ useEffect(() => {
             user: user,
             token: token,
             api: api,
+            modalActive: modalActive,
+            goods: goods,
+            visibleGoods: visibleGoods,
             setUser: setUser,
             setToken: setToken,
             setApi: setApi,
-
+            setModalActive: setModalActive,
+            setGoods: setGoods,
+            setVisibleGoods: setVisibleGoods,
+            PATH: PATH
         }}>
-        <div className="contant">
+        <div className="wrapper">
         <Header 
             // user={user} удаляем из-за внесения ктх провайдера(выше). и меняем во всех компонентах ссылки на ктх провайдера
             // setUser={setUser} 
-            goods={goods}
-            searchGoods={setVisibleGoods}
-            setModalActive={setModalActive}
+            // goods={goods}
+            // searchGoods={setVisibleGoods}
+            // setModalActive={setModalActive}
         />
         <main>
             <Routes>
                 <Route path={PATH} element={<Home data={smiles}/>}/>
                 <Route path={PATH + "catalog"} element={
-                    <Catalog data={visibleGoods}/>}/>
-                <Route path={PATH + "/profile"} element={
+                    <Catalog/>}/>
+                <Route path={PATH + "profile"} element={
                     <Profile/>}/>
-                <Route path={PATH + "/catalog/:id"} element={<Product/>}/>
-                <Route path={PATH + "/cart"} element={<Cart/>}/>
+                <Route path={PATH + "catalog/:id"} element={<Product/>}/>
+                <Route path={PATH + "cart"} element={<Cart/>}/>
+                <Route path={PATH + "add"} element={<AddForm/>}/>
             </Routes>
             {/* {user ? <Catalog data={goods}/> : <Home data={smiles}/>}; */}
             {/* <Home data={smiles}/> */}
@@ -121,7 +132,7 @@ useEffect(() => {
         <Footer/>
     </div>
     {/* is active это пропсы, которые работают внутри компонента Модал. а модалэктив и сетмодалэктив - значения, которые сохраняются внутри параметра */}
-    <Modal isActive={modalActive} setState={setModalActive}/>
+    <Modal/>
     </Ctx.Provider>
     )
 }

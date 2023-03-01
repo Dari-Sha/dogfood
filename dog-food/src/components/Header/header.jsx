@@ -7,9 +7,10 @@ import {ReactComponent as CartImg} from "./img/ic-cart.svg";
 import {Link} from "react-router-dom";
 import "./header.css";
 import Ctx from "../../Ctx";
+import {PlusCircle} from "react-bootstrap-icons"
 
-export default ({ goods, searchGoods, setModalActive}) => {
-   const {user, setUser} = useContext(Ctx);
+export default () => {
+   const {user, setUser, setModalActive, PATH} = useContext(Ctx);
    // хук состояния - свойство, функция, в качестве аргумента которой передается новое значение нашего свойства = useState(аргумент-изначальное значение свойства)
    // const [user, setUser] = useState(localStorage.getItem("user8"));
 
@@ -36,16 +37,17 @@ export default ({ goods, searchGoods, setModalActive}) => {
    return <>
    <header>
       <div className="headnav">
-         <Link className="logo" to="/">
+         <Link className="logo" to={PATH}>
          <LogoImg/>
             </Link>
-         <Link className="catal" to="/catalog">Каталог</Link>
-         <Search data={goods} searchGoods={searchGoods}/>
+         <Link className="catal" to={PATH + "catalog"}>Каталог</Link>
+         <Search/>
          {/* <input type="search" placeholder="Поиск..." className="search"/> */}
          <nav className="menu">
             <FavImg/>
             <Link to="/cart"><CartImg/></Link>
-            {user && <Link to="/profile">{user}</Link>}
+            {user && <Link to={PATH + "add"}><PlusCircle style={{fontSize: "22px"}}/></Link>}
+            {user && <Link to={PATH + "profile"}>{user.name}</Link>}
             {!user && <a href="" onClick={logIn}><LogoMinImg/><br/>Войти</a>}
             {user && <a href="" onClick={logOut}>Выйти</a>}
          </nav>

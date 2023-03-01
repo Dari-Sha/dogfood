@@ -5,14 +5,14 @@ body {
 
 }
 
-.contant {
+.wrapper {
     min-height: 100vh;
     display: grid;
     grid-template-rows: 100px 6 140px;
 }
 
 
-.contant>* {
+.wrapper>* {
     /* margin: 0; */
     padding: 0 calc(50% - 600px);
 }
@@ -128,12 +128,19 @@ h1 {
     vertical-align: 40px;
 }
 
+.form-preview {
+    height: 106px;
+    background-size: contain;
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+
 /* .empty-block>*:not(svg) {
  font-size: 1rem;
 } */
 
 @media (max-width: 1260px) {
-    .contant>* {
+    .wrapper>* {
         padding: 0 30px;
     }
     

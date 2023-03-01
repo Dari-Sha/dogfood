@@ -12,6 +12,7 @@ export default ({author, rating, created_at, }) => {
         } 
         return stars;
     }
+
     return <>
         <h3>{author || ""}</h3>
         <div>{setRating(rating)}</div>
