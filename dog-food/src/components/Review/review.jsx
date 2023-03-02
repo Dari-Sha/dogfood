@@ -2,10 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import {Star, StarFill} from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 import Ctx from "../../Ctx";
+import "./review.css";
 
-export default ({author, rating, created_at}) => {
-    const {authors, text} = useContext(Ctx);
+export default ({author, rating, created_at, text}) => {
+    const {authors} = useContext(Ctx);
     const person = authors.filter(a => a._id === author)[0];
+    const avat = person.avatar;
     
     // console.log(author);
     // console.log(person);
@@ -21,6 +23,7 @@ export default ({author, rating, created_at}) => {
     }
 
     return <>
+        <img src={avat} alt="кря" className="avata"/>
         <h3>{person && person.name || ""}</h3>
         <div>{setRating(rating)}</div>
         <div>{text}</div>

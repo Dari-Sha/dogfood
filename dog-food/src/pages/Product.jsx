@@ -83,7 +83,6 @@ export default ({}) => {
             product.reviews.map((el, i) => <Review {...el} key={i}/>)}
         </div>
         <br/>
-        <h2>Добавить отзыв</h2>
         <AddReview id={id} setProduct={setProduct} />
         {/* <>
         <Form>

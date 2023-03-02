@@ -49,6 +49,9 @@ export default ({ id: productId, setProduct }) => {
 
     return (
         <div>
+            <button className={active ? "no-active" : "btn btn-review"} onClick={() => setActive(prev=> !prev)}>
+                Добавить отзыв
+            </button>
             <Form className={active ? "active" : "no-active"} onSubmit={handlerSubmit}>
                 <Row>
                     <Col xs={12} md={6}>
