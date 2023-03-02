@@ -7,10 +7,11 @@ import {ReactComponent as CartImg} from "./img/ic-cart.svg";
 import {Link} from "react-router-dom";
 import "./header.css";
 import Ctx from "../../Ctx";
-import {PlusCircle} from "react-bootstrap-icons"
+import {PlusCircle, HeartFill} from "react-bootstrap-icons";
+import {Badge} from "react-bootstrap";
 
 export default () => {
-   const {user, setUser, setModalActive, PATH} = useContext(Ctx);
+   const {user, setUser, setModalActive, PATH, favorites, basket} = useContext(Ctx);
    // хук состояния - свойство, функция, в качестве аргумента которой передается новое значение нашего свойства = useState(аргумент-изначальное значение свойства)
    // const [user, setUser] = useState(localStorage.getItem("user8"));
 
@@ -44,9 +45,20 @@ export default () => {
          <Search/>
          {/* <input type="search" placeholder="Поиск..." className="search"/> */}
          <nav className="menu">
-            <FavImg/>
-            <Link to="/cart"><CartImg/></Link>
+            {/* <FavImg/> */}
+            {/* <Link to={PATH + "basket"}><CartImg/></Link> */}
             {user && <Link to={PATH + "add"}><PlusCircle style={{fontSize: "22px"}}/></Link>}
+            {user && <Link to={PATH + "favorites"} className="badge-link">
+                <HeartFill style={{fontSize: "20px"}}/>
+                {/* <Badge bg="danger" text="light">{favorites.length}</Badge> */}
+                <Badge bg="light" text="dark">{favorites.length}</Badge>
+            </Link>}
+            {user && <Link to={PATH + "basket"} className="badge-link">
+                <CartImg style={{fontSize: "20px"}}/>
+                <Badge bg="light" text="dark">
+                    {basket.reduce((acc, el) => acc + el.cnt, 0)}
+                </Badge>
+            </Link>}
             {user && <Link to={PATH + "profile"}>{user.name}</Link>}
             {!user && <a href="" onClick={logIn}><LogoMinImg/><br/>Войти</a>}
             {user && <a href="" onClick={logOut}>Выйти</a>}

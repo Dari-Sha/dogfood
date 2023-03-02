@@ -31,6 +31,8 @@ position: relative;
     border: none;
     /* width: 24px; */
     height: 24px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .searchS>button>svg {

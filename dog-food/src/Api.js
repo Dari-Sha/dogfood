@@ -80,6 +80,31 @@ class Api {
             body: JSON.stringify(body)
         })
     }
+    
+    deleteReview(productId, reviewId) {
+        return fetch(`${this.path}/products/review/${productId}/${reviewId}`, {
+            method: "DELETE",
+            headers: {
+                "authorization": `Bearer ${this.token}`
+            }
+        })
+    }
+
+    getReviews() {
+        return fetch(`${this.path}/products/review/`, {
+            headers: {
+                "authorization": `Bearer ${this.token}`
+            }
+        })
+    }
+
+    getProductReview(productId) {
+        return fetch(`${this.path}/products/review/${productId}`, {
+            headers: {
+                "authorization": `Bearer ${this.token}`
+            }
+        })
+    }
 }
 
 export {Api};

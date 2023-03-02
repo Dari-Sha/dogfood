@@ -20,6 +20,8 @@
     display: grid;
     gap: 20px;
     position: relative;
+    height: auto;
+    overflow: visible;
 }
 
 .modal h2 {

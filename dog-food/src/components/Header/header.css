@@ -48,6 +48,22 @@ header {
     font-weight: 200;
 }
 
+.badge-link {
+    position: relative;
+}
+.badge {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14px;
+    height: 14px;
+    font-size: 8px;
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+}
+
 a {
     text-decoration: none;
     color: inherit;

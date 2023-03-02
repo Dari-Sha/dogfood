@@ -6,5 +6,15 @@ export default React.createContext({
     api: {},
     setUser: () => {},
     setToken: () => {},
-    setApi: () => {}
+    setApi: () => {},
+    modalActive: false,
+    setModalActive: () => {},
+    goods: [],
+    setGoods: () => {},
+    visibleGoods: [],
+    setVisibleGoods: () => {},
+    favorites: [],
+    setFavorites: () => {},
+    basket: [],
+    setBasket: () => {}
 });
