@@ -1,5 +1,6 @@
-import React, {useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {Star, StarFill} from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
 import Ctx from "../../Ctx";
 
 export default ({author, rating, created_at}) => {
@@ -22,7 +23,7 @@ export default ({author, rating, created_at}) => {
     return <>
         <h3>{person && person.name || ""}</h3>
         <div>{setRating(rating)}</div>
-        {/* <div>{text}</div> */}
+        <div>{text}</div>
         <div>{new Date(created_at).toLocaleString()}</div>
     </>
 }

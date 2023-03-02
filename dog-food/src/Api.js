@@ -105,6 +105,27 @@ class Api {
             }
         })
     }
+
+    // Отзывы
+    addReview(productId, body) {
+        return fetch(`${this.path}/products/review/${productId}`, {
+            method: "POST",
+            headers: {
+                "authorization": `Bearer ${this.token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body)
+        })
+    }
+
+    deleteReview(productId, reviewId) {
+        return fetch(`${this.path}/products/review/${productId}/${reviewId}`, {
+            method: "DELETE",
+            headers: {
+                "authorization": `Bearer ${this.token}`
+            }
+        })
+    }
 }
 
 export {Api};

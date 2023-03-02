@@ -1,18 +1,19 @@
 import React, {useState, useEffect, useContext} from "react";
-import {useParams, Link, useNavigate, 
-Navigate} from "react-router-dom";
+import {useParams, Link, useNavigate, Navigate} from "react-router-dom";
 import { Trash3 } from "react-bootstrap-icons";
+import {Row, Col, Form, Button} from "react-bootstrap";
 import Review from "../components/Review/review";
+import AddReview from "../components/AddReview/AddReview"
 import Ctx from "../Ctx";
 
 export default ({}) => {
     const {id} = useParams();
     const [product, setProduct] = useState({});
+    const {api, PATH, user, setGoods} = useContext(Ctx);
     // const [users, setUsers] = useState([]);
     // const [flag, changeFlag] = useState(!!users.lengh);
     // по id товара получаем данные для отрисовки по запросу ГЕТ
     // let token = localStorage.getItem("token8");
-    const {api, PATH, user, setGoods} = useContext(Ctx);
     const navigate = useNavigate();
     useEffect(() => {
         // if (token) {
@@ -80,9 +81,25 @@ export default ({}) => {
         <div className="reviews">
             {product.reviews && product.reviews.length > 0 && 
             product.reviews.map((el, i) => <Review {...el} key={i}/>)}
-        
         </div>
         <br/>
+        <h2>Добавить отзыв</h2>
+        <AddReview id={id} setProduct={setProduct} />
+        {/* <>
+        <Form>
+            <Row>
+                <Col xs={12} md={6}>
+                        <Form.Control 
+                            as="textarea" 
+                            rows={4}
+                        />
+                    <Button variant={"warning"} type="submit">
+                        Добавить
+                    </Button>
+                </Col>
+            </Row>
+        </Form>
+        </>        */}
     </div>
     )
 }
